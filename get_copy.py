@@ -10,7 +10,7 @@ db_container_name: str = 'mauticdb_test'
 
 # COMMANDS
 get_volume = f'docker cp {backend_container_name}:/var/www/html ./snapshot/'
-get_db_dump = f'docker exec -i {db_container_name} mysqldump -u{db_username} -p{db_password} --databases {db_name} --skip-comments > ./snapshot/dump.sql'  # noqa
+get_db_dump = f'docker exec -i {db_container_name} mysqldump -u{db_username} -p{db_password} --databases {db_name} --no-tablespaces --skip-comments > ./snapshot/dump.sql'  # noqa
 
 commands_list = [get_volume, get_db_dump]
 
